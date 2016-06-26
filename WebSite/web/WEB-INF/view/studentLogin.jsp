@@ -1,0 +1,63 @@
+<%-- 
+    Document   : welcomePage
+    Created on : 19 Jun, 2015, 12:43:56 PM
+    Author     : VarunAg
+--%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<s:url var="registerStudent" value="/welcomeStudent.htm"/>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login Form</title>
+    </head>
+    <body>
+        <table  width="80%" border="1" align="center">
+            <tr>
+                <td height="30" align="center">
+                    <%@include file="common/header_student.jsp" %>
+                </td>
+            </tr>
+            <tr>
+                <td height="20">
+                    <%@include file="common/top_menu_welcome.jsp" %>
+                </td>
+            </tr>
+            <tr>
+                  <td height="400" valign="top" align="center">
+                    <br/>
+               <f:form action="studentLogin.htm" commandName="studentCommand">
+        <table border="1" >
+            <tr>
+                <td colspan="2"><strong>Student Login Form</strong></td>
+            </tr>
+            <tr>
+                <td >UserName</td>
+                <td><f:input path="loginName" required="true"/></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><f:password path="password" required="true"/></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Login">|<a href="${registerStudent}">NEW_STUDENT</a></td>
+                
+            </tr>
+        </table>
+                  <strong> ${err}</strong>
+    </f:form>
+                  </td>
+        </tr>
+         <tr>
+                <th height="20"><strong>
+                        <%@include file="common/footer.jsp" %></strong>
+                </th>
+            </tr>
+    </table>
+
+</body>
+</html>
